@@ -10,8 +10,11 @@ client.on('ready', () => {
 client.on('message', message => {
     if (message.author.bot) return;
     var char = ["+", "-", "&", "|", "!", "(", ")", "{", "}", "[", "]", "^", "~", "*", "?", ":", ";", "/" , "\\", "!", "`", "£", "%", "§", ".", ",", "£", "µ", "~", "#", "`", "@", "=", "°", "¨", ""] // if you to add more special char do it (don't remove the last one or it will not work, idk why)
-    // add your id or any id which will not be pinged  
-    if (message.author.id === "973931606442139688") return;
+    // add your id or any id which will not be pinged (config.json)
+    for (id in config.anti_quoifeur) {
+        if (message.author.id === config.anti_quoifeur[id]) return;
+    }
+
     var p = message.content; 
     for(a in char) {
         if (p.includes(char[a])) {
